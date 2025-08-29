@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from "mongoose"
 import cors from "cors"
 import { config } from "dotenv"
+import misionesRouter from "./routes/misiones.routes.js"
 
 config()
 
@@ -10,6 +11,7 @@ const app = express()
 
 app.use( express.json() )
 app.use( cors() )
+app.use("/api/misiones", misionesRouter)
 
 mongoose.connect(process.env.MONGO_KEY).then( () => console.log( "Conectado a MongoDB" ) )
 
