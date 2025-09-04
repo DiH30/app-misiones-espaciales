@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { api } from '../services/api';
 
 function FormularioMision() {
 
@@ -13,13 +14,19 @@ function FormularioMision() {
 
     console.log(data);
 
-    // lógica para enviar los datos al backend
-    /* await fetch('/api/misiones', {
-     method: 'POST',
-     headers: { 'Content-Type': 'application/json' },
-     body: JSON.stringify(data)
-     });*/
+     // Enviar los datos al backend para registrarlos
+    try {
+      await api.post('/misiones', data); // Envía el formulario a la ruta /misiones
+      console.log('Misión registrada:', data);
+      
+      // Redirigir a la lista de misiones
+      window.location.href = "/misiones"; 
+
+    } catch (error) {
+      console.error('Error al registrar la misión:', error);
+    }
   };
+
 
   return (
     <form onSubmit={handleSubmit(handleMision)}>
@@ -75,7 +82,7 @@ function FormularioMision() {
       {/* CARGA ÚTIL (opcional) */}
       <input placeholder="Carga útil" {...register("cargaUtil")} />
 
-      <button type="submit">Registrar Misión</button>
+      <button type="submit" className="btn btn-secondary fw-bold w-23">Registrar Misión</button>
     </form>
   );
 }

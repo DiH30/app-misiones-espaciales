@@ -5,14 +5,22 @@ function ListaMisiones() {
 
   const [misiones, setMisiones] = useState([]);
 
-  useEffect(() => {
+   useEffect(() => {
+    api.get('/misiones') 
+      .then(res => setMisiones(res.data))
+      .catch(err => {
+        console.error('Error al obtener las misiones:', err.response?.status, err.message);
+      });
+  }, []);
+
+  /*useEffect(() => {
     api.get('/').then(res => setMisiones(res.data));
-  }, [misiones]); //Se puede poner [misiones] para que el componente se actualice cada vez que un usuario nuevo entre a la base de datos
+  }, ); */
 
   return (
 
     <div>
-      <h2>Lista de Misiones</h2>
+      <h2 class="text-primary">Lista de Misiones 👩‍🚀 🚀 🌌</h2>
       <ul>
         {misiones.map(mision => (
           <li key={mision._id}>
