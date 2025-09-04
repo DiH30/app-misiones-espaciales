@@ -57,11 +57,11 @@ export const LoginPage = () => {
               )}
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-secondary fw-bold w-100">
               Login
             </button>
           </form>
-          <p className="mt-3">No tienes cuenta? <Link to="/register">Regístrate</Link></p>
+          <p className="mt-3">¿No tienes cuenta? <Link to="/register">Regístrate</Link></p>
         </div>
       </div>
     </div>

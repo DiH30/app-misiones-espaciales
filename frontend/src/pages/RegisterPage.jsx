@@ -71,11 +71,11 @@ export const RegisterPage = () => {
               )}
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-secondary fw-bold w-100">
               Registrarse
             </button>
           </form>
-          <p className="mt-3">Ya tienes cuenta? <Link to="/login">Inicia Sesión</Link></p>
+          <p className="mt-3">¿Ya tienes cuenta? <Link to="/login">Inicia Sesión</Link></p>
         </div>
       </div>
     </div>
