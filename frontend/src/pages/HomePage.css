@@ -1,0 +1,85 @@
+/* Contenedor principal de la página, ocupando toda la altura de la pantalla */
+.home-container {
+  max-width: 100%;
+  height: 100%;
+  margin: 0; /* Centra el contenido horizontalmente */
+  padding: 20px;
+  background: linear-gradient(to bottom,#3a6073, #16222a); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título principal de la página */
+.home-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f1c40f;
+}
+
+/* Contenedor para la imagen de NASA */
+.nasa-image {
+  margin-top: 20px;
+  text-align: center;
+  max-width: 100%; /* Permite que la imagen ocupe todo el ancho disponible */
+  margin-bottom: 30px; /* Espacio adicional debajo de la imagen */
+}
+
+/* Estilo de la imagen */
+.nasa-img {
+  width: 100%;
+  max-width: 800px; /* Limita el ancho de la imagen */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Explicación debajo de la imagen */
+.nasa-explanation {
+  font-size: 1.1rem;
+  color: #ecf0f1;
+  margin-top: 20px;
+}
+
+/* Contenedor de error */
+.error-message {
+  font-size: 1.2rem;
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilo de los botones en la página*/
+.btn-explore {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  background-color: #f1c40f;
+  color: #2c3e50;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Efecto hover en el botón */
+.btn-explore:hover {
+  background-color: #f39c12;
+}
+
+/* Evitar que el botón tenga outline cuando esté enfocado */
+button:focus {
+  outline: none;
+}
