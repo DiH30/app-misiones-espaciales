@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ListaMisiones from './components/ListaMisiones';
-import FormularioMision from './components/FormularioMision';
 import { HomePage } from "./pages/HomePage"
 import { RegisterPage } from "./pages/RegisterPage"
 import { LoginPage } from "./pages/LoginPage"
@@ -15,7 +14,6 @@ export const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/formulario" element={<FormularioMision />} />
         <Route path="/misiones" element={<ListaMisiones />} />
 
         {/* Ruta privada */}

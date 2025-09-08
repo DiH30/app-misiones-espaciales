@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { api } from '../services/api';
+import './FormularioMision.css';
 
 function FormularioMision() {
 
@@ -8,19 +9,19 @@ function FormularioMision() {
   const handleMision = async (data) => {
     // Convierte la fecha a tipo Date
     data.fechaLanzamiento = new Date(data.fechaLanzamiento);
-    
+
     // Convierte tripulación en arreglo si es string separado por comas
     data.tripulacion = data.tripulacion.split(',').map(member => member.trim());
 
     console.log(data);
 
-     // Enviar los datos al backend para registrarlos
+    // Enviar los datos al backend para registrarlos
     try {
       await api.post('/misiones', data); // Envía el formulario a la ruta /misiones
       console.log('Misión registrada:', data);
-      
+
       // Redirigir a la lista de misiones
-      window.location.href = "/misiones"; 
+      // window.location.href = "/misiones";
 
     } catch (error) {
       console.error('Error al registrar la misión:', error);
@@ -29,60 +30,143 @@ function FormularioMision() {
 
 
   return (
-    <form onSubmit={handleSubmit(handleMision)}>
+    <form onSubmit={handleSubmit(handleMision)} className="form-container" >
+      <h1 className="form-title">Registro de Misión Espacial 🚀</h1>
+
       {/* NOMBRE */}
-      <input placeholder="Nombre de la misión" {...register("nombre", { required: "El nombre es obligatorio" })} />
-      {errors.nombre && <p>{errors.nombre.message}</p>}
+      <div className="form-group">
+        <label>Nombre de la Misión</label>
+        <input
+          type="text"
+          placeholder="Nombre de la misión"
+          {...register("nombre", { required: "El nombre es obligatorio" })}
+        />
+        {errors.nombre && <p className="error">{errors.nombre.message}</p>}
+      </div>
 
       {/* OBJETIVO */}
-      <input placeholder="Objetivo" {...register("objetivo", { required: "El objetivo es obligatorio" })} />
-      {errors.objetivo && <p>{errors.objetivo.message}</p>}
+      <div className="form-group">
+        <label>Objetivo</label>
+        <input
+          type="text"
+          placeholder="Objetivo"
+          {...register("objetivo", { required: "El objetivo es obligatorio" })}
+        />
+        {errors.objetivo && <p className="error">{errors.objetivo.message}</p>}
+      </div>
 
       {/* MODELO */}
-      <input placeholder="Modelo" {...register("modelo", { required: "El modelo es obligatorio" })} />
-      {errors.modelo && <p>{errors.modelo.message}</p>}
+      <div className="form-group">
+        <label>Modelo</label>
+        <input
+          type="text"
+          placeholder="Modelo"
+          {...register("modelo", { required: "El modelo es obligatorio" })}
+        />
+        {errors.modelo && <p className="error">{errors.modelo.message}</p>}
+      </div>
 
       {/* FECHA DE LANZAMIENTO */}
-      <input type="datetime-local" {...register("fechaLanzamiento", { required: "La fecha de lanzamiento es obligatoria" })} />
-      {errors.fechaLanzamiento && <p>{errors.fechaLanzamiento.message}</p>}
+      <div className="form-group">
+        <label>Fecha de Lanzamiento</label>
+        <input
+          type="datetime-local"
+          {...register("fechaLanzamiento", { required: "La fecha de lanzamiento es obligatoria" })}
+        />
+        {errors.fechaLanzamiento && <p className="error">{errors.fechaLanzamiento.message}</p>}
+      </div>
 
       {/* SITIO DE LANZAMIENTO */}
-      <input placeholder="Sitio de lanzamiento" {...register("sitioLanzamiento", { required: "El sitio de lanzamiento es obligatorio" })} />
-      {errors.sitioLanzamiento && <p>{errors.sitioLanzamiento.message}</p>}
+      <div className="form-group">
+        <label>Sitio de Lanzamiento</label>
+        <input
+          type="text"
+          placeholder="Sitio de lanzamiento"
+          {...register("sitioLanzamiento", { required: "El sitio de lanzamiento es obligatorio" })}
+        />
+        {errors.sitioLanzamiento && <p className="error">{errors.sitioLanzamiento.message}</p>}
+      </div>
 
       {/* TRIPULACIÓN */}
-      <input placeholder="Tripulación (separado por comas)" {...register("tripulacion", { required: "La tripulación es obligatoria" })} />
-      {errors.tripulacion && <p>{errors.tripulacion.message}</p>}
+      <div className="form-group">
+        <label>Tripulación</label>
+        <input
+          type="text"
+          placeholder="Tripulación (separado por comas)"
+          {...register("tripulacion", { required: "La tripulación es obligatoria" })}
+        />
+        {errors.tripulacion && <p className="error">{errors.tripulacion.message}</p>}
+      </div>
 
       {/* ESTADO ACTUAL */}
-      <select {...register("estadoActual", { required: "El estado actual es obligatorio" })}>
-        <option value="">Seleccione un estado</option>
-        <option value="En curso">En curso</option>
-        <option value="Completada">Completada</option>
-        <option value="Fallida">Fallida</option>
-        <option value="Cancelada">Cancelada</option>
-      </select>
-      {errors.estadoActual && <p>{errors.estadoActual.message}</p>}
+      <div className="form-group">
+        <label>Estado Actual</label>
+        <select {...register("estadoActual", { required: "El estado actual es obligatorio" })}>
+          <option value="">Seleccione un estado</option>
+          <option value="En curso">En curso</option>
+          <option value="En curso">En planificación</option>
+          <option value="Completada">Completada</option>
+          <option value="Fallida">Fallida</option>
+          <option value="Cancelada">Cancelada</option>
+        </select>
+        {errors.estadoActual && <p className="error">{errors.estadoActual.message}</p>}
+      </div>
 
       {/* TRAYECTORIA */}
-      <input placeholder="Trayectoria" {...register("trayectoria", { required: "La trayectoria es obligatoria" })} />
-      {errors.trayectoria && <p>{errors.trayectoria.message}</p>}
+      <div className="form-group">
+        <label>Trayectoria</label>
+        <input
+          type="text"
+          placeholder="Trayectoria"
+          {...register("trayectoria", { required: "La trayectoria es obligatoria" })}
+        />
+        {errors.trayectoria && <p className="error">{errors.trayectoria.message}</p>}
+      </div>
 
       {/* DURACIÓN ESTIMADA (opcional) */}
-      <input type="number" placeholder="Duración estimada (días)" {...register("duracionEstimada")} />
+      <div className="form-group">
+        <label>Duración Estimada (días)</label>
+        <input
+          type="number"
+          placeholder="Duración estimada (días)"
+          {...register("duracionEstimada")}
+        />
+      </div>
 
       {/* VEHÍCULO DE LANZAMIENTO */}
-      <input placeholder="Vehículo de lanzamiento" {...register("vehiculoLanzamiento", { required: "El vehículo de lanzamiento es obligatorio" })} />
-      {errors.vehiculoLanzamiento && <p>{errors.vehiculoLanzamiento.message}</p>}
+      <div className="form-group">
+        <label>Vehículo de Lanzamiento</label>
+        <input
+          type="text"
+          placeholder="Vehículo de lanzamiento"
+          {...register("vehiculoLanzamiento", { required: "El vehículo de lanzamiento es obligatorio" })}
+        />
+        {errors.vehiculoLanzamiento && <p className="error">{errors.vehiculoLanzamiento.message}</p>}
+      </div>
 
       {/* DESTINO */}
-      <input placeholder="Destino" {...register("destino", { required: "El destino es obligatorio" })} />
-      {errors.destino && <p>{errors.destino.message}</p>}
+      <div className="form-group">
+        <label>Destino</label>
+        <input
+          type="text"
+          placeholder="Destino"
+          {...register("destino", { required: "El destino es obligatorio" })}
+        />
+        {errors.destino && <p className="error">{errors.destino.message}</p>}
+      </div>
 
       {/* CARGA ÚTIL (opcional) */}
-      <input placeholder="Carga útil" {...register("cargaUtil")} />
+      <div className="form-group">
+        <label>Carga Útil</label>
+        <input
+          type="text"
+          placeholder="Carga útil"
+          {...register("cargaUtil")}
+        />
+      </div>
 
-      <button type="submit" className="btn btn-secondary fw-bold w-23">Registrar Misión</button>
+      <button type="submit" className="btn-submit">Registrar Misión</button>
+
     </form>
   );
 }

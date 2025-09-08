@@ -31,7 +31,7 @@ const MisionSchema = new mongoose.Schema({
   },
   estadoActual: {
     type: String,
-    enum: ["En curso", "Completada", "Fallida", "Cancelada"],
+    enum: ["En curso", "En planificación","Completada", "Fallida", "Cancelada"],
     required: true
   },
   trayectoria: {

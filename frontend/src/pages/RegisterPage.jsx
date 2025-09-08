@@ -34,7 +34,7 @@ export const RegisterPage = () => {
             
             {/* Username */}
             <div className="mb-3">
-              <label className="form-label">Username</label>
+              <label className="form-label text-dark">Username</label>
               <input
                 type="text"
                 className={`form-control ${errors.username ? "is-invalid" : ""}`}
@@ -47,7 +47,7 @@ export const RegisterPage = () => {
 
             {/* Email */}
             <div className="mb-3">
-              <label className="form-label">Email</label>
+              <label className="form-label text-dark">Email</label>
               <input
                 type="email"
                 className={`form-control ${errors.email ? "is-invalid" : ""}`}
@@ -60,7 +60,7 @@ export const RegisterPage = () => {
 
             {/* Password */}
             <div className="mb-3">
-              <label className="form-label">Password</label>
+              <label className="form-label text-dark">Password</label>
               <input
                 type="password"
                 className={`form-control ${errors.password ? "is-invalid" : ""}`}

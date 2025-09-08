@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { api } from '../services/api';
+import './ListaMisiones.css';
+
 
 function ListaMisiones() {
 
   const [misiones, setMisiones] = useState([]);
 
-   useEffect(() => {
+  useEffect(() => {
     api.get('/misiones') 
       .then(res => setMisiones(res.data))
       .catch(err => {
@@ -13,36 +15,51 @@ function ListaMisiones() {
       });
   }, []);
 
-  /*useEffect(() => {
-    api.get('/').then(res => setMisiones(res.data));
-  }, ); */
-
   return (
-
-    <div>
-      <h2 class="text-primary">Lista de Misiones 👩‍🚀 🚀 🌌</h2>
-      <ul>
+    <div className="misiones-container">
+      <h2 className="misiones-title"> Misiones 👩‍🚀 🚀</h2>
+      <ul className="misiones-list">
         {misiones.map(mision => (
-          <li key={mision._id}>
-            <strong>{mision.nombre}</strong><br />
-            <strong>Objetivo:</strong> {mision.objetivo}<br />
-            <strong>Modelo:</strong> {mision.modelo}<br />
-            <strong>Fecha de lanzamiento:</strong> {new Date(mision.fechaLanzamiento).toLocaleDateString()}<br />
-            <strong>Sitio de lanzamiento:</strong> {mision.sitioLanzamiento}<br />
-            <strong>Tripulación:</strong> {mision.tripulacion.join(', ')}<br />
-            <strong>Estado actual:</strong> {mision.estadoActual}<br />
-            <strong>Trayectoria:</strong> {mision.trayectoria}<br />
-            <strong>Duración estimada:</strong> {mision.duracionEstimada ? mision.duracionEstimada + ' días' : 'No especificada'}<br />
-            <strong>Vehículo de lanzamiento:</strong> {mision.vehiculoLanzamiento}<br />
-            <strong>Destino:</strong> {mision.destino}<br />
-            <strong>Carga útil:</strong> {mision.cargaUtil || 'No especificada'}<br />
+          <li key={mision._id} className="mision-card">
+            <h3 className="mision-name">{mision.nombre}</h3>
+            <div className="mision-detail">
+              <strong>Objetivo:</strong> {mision.objetivo}
+            </div>
+            <div className="mision-detail">
+              <strong>Modelo:</strong> {mision.modelo}
+            </div>
+            <div className="mision-detail">
+              <strong>Fecha de lanzamiento:</strong> {new Date(mision.fechaLanzamiento).toLocaleDateString()}
+            </div>
+            <div className="mision-detail">
+              <strong>Sitio de lanzamiento:</strong> {mision.sitioLanzamiento}
+            </div>
+            <div className="mision-detail">
+              <strong>Tripulación:</strong> {mision.tripulacion.join(', ')}
+            </div>
+            <div className="mision-detail">
+              <strong>Estado actual:</strong> {mision.estadoActual}
+            </div>
+            <div className="mision-detail">
+              <strong>Trayectoria:</strong> {mision.trayectoria}
+            </div>
+            <div className="mision-detail">
+              <strong>Duración estimada:</strong> {mision.duracionEstimada ? mision.duracionEstimada + ' días' : 'No especificada'}
+            </div>
+            <div className="mision-detail">
+              <strong>Vehículo de lanzamiento:</strong> {mision.vehiculoLanzamiento}
+            </div>
+            <div className="mision-detail">
+              <strong>Destino:</strong> {mision.destino}
+            </div>
+            <div className="mision-detail">
+              <strong>Carga útil:</strong> {mision.cargaUtil || 'No especificada'}
+            </div>
           </li>
         ))}
       </ul>
     </div>
-
   );
-
 }
 
 export default ListaMisiones;
