@@ -20,8 +20,10 @@ export const LoginPage = () => {
       console.log(res)
       navigate("/profile")
     } catch (error) {
+
       console.log(error)
     }
+    
   };
 
   return (
