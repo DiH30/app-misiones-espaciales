@@ -6,11 +6,13 @@ import { LoginPage } from "./pages/LoginPage"
 import { ProfilePage } from "./pages/ProfilePage"
 import { PrivateRoute } from "./PrivateRoute"
 import { AuthProvider } from "./context/AuthContext"
+import { Navbar } from "./components/NavBar"
 
 export const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -33,4 +35,3 @@ export const App = () => {
     </AuthProvider>
   )
 }
-
