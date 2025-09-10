@@ -104,7 +104,7 @@ function FormularioMision() {
         <select {...register("estadoActual", { required: "El estado actual es obligatorio" })}>
           <option value="">Seleccione un estado</option>
           <option value="En curso">En curso</option>
-          <option value="En curso">En planificación</option>
+          <option value="En planificación">En planificación</option>
           <option value="Completada">Completada</option>
           <option value="Fallida">Fallida</option>
           <option value="Cancelada">Cancelada</option>
