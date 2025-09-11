@@ -4,9 +4,11 @@ import { HomePage } from "./pages/HomePage"
 import { RegisterPage } from "./pages/RegisterPage"
 import { LoginPage } from "./pages/LoginPage"
 import { ProfilePage } from "./pages/ProfilePage"
+import { ImagesPage } from "./pages/ImagesPage";
 import { PrivateRoute } from "./PrivateRoute"
 import { AuthProvider } from "./context/AuthContext"
 import { Navbar } from "./components/NavBar"
+
 
 export const App = () => {
   return (
@@ -18,6 +20,7 @@ export const App = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/misiones" element={<ListaMisiones />} />
+          <Route path="/images" element={<ImagesPage />} />
 
           {/* Ruta privada */}
 

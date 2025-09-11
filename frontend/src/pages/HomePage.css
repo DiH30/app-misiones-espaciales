@@ -23,6 +23,11 @@
   color: #f1c40f;
 }
 
+/* Título secundario de la página */
+.titulo-cursiva {
+  font-style: italic;
+}
+
 /* Contenedor para la imagen de NASA */
 .nasa-image {
   margin-top: 20px;

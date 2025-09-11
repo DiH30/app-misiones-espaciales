@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"  // usamos el contexto
+import { Link, useNavigate } from "react-router-dom"; // Importamos useNavigate para redirigir al login
+import { useAuth } from "../context/AuthContext"  //usamos el contexto
 
 export const Navbar = () => {
-  const { user, logout } = useAuth() // obtenemos usuario y logout del contexto
+  const { user, logout } = useAuth() //obtenemos usuario y logout del contexto
+  const navigate = useNavigate(); // Inicializamos el hook useNavigate
+
+  const handleLogout = () => {
+    logout(); // Cerramos sesión
+    navigate("/login"); // Redirigimos a la página de login
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,8 +37,17 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/profile">Perfil</Link>
                 </li>
+                {/* Enlace a Misiones */}
                 <li className="nav-item">
-                  <button className="btn btn-outline-light ms-2" onClick={logout}>
+                  <Link className="nav-link" to="/misiones">Misiones</Link>
+                </li>
+                {/* Enlace a Imágenes */}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/images">Imágenes</Link>
+                </li>
+
+                <li className="nav-item">
+                  <button className="btn btn-outline-light ms-2" onClick={handleLogout} >
                     Logout
                   </button>
                 </li>

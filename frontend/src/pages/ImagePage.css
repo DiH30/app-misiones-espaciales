@@ -1,0 +1,36 @@
+.images-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.images-title {
+  font-size: 2rem;
+  color: #f1c40f;
+  margin-bottom: 20px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+/* Aseguramos que las imágenes se ajusten a su contenedor */
+.image-card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Asegura que las imágenes tengan una altura fija */
+  position: relative;
+}
+.image-card img {
+  display: block; /* Elimina cualquier espacio en blanco debajo de la imagen */
+}
+.image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el área del contenedor sin distorsionarse */
+}

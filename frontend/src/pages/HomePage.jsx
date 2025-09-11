@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import './HomePage.css';  // Importando el archivo CSS
 
 export const HomePage = () => {
   const [nasaData, setNasaData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate(); // ✅ Hook para navegación
 
   const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY;
   const NASA_API_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
@@ -29,6 +32,10 @@ export const HomePage = () => {
       });
   }, [NASA_API_KEY]);
 
+  const irARegistro = () => {
+    navigate('/register'); // ✅ Redirige a /register
+  };
+
   if (loading) {
     return <div>Cargando...</div>;
   }
@@ -40,7 +47,7 @@ export const HomePage = () => {
   return (
     <div className="home-container">
       <h2 className="home-title">Bienvenido a la Página de Inicio 🚀</h2>
-      <h3>Imagen Astronómica del Día</h3>
+      <h3 className="titulo-cursiva">Imagen Astronómica del Día</h3>
 
       {nasaData && (
         <div className="nasa-image">
@@ -50,7 +57,9 @@ export const HomePage = () => {
         </div>
       )}
 
-      <button className="btn-explore">Explorar más</button>
+      <button className="btn-explore" onClick={irARegistro}>
+      Explorar más
+    </button>
     </div>
   );
 };
