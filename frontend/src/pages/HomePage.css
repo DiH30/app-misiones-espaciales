@@ -29,7 +29,9 @@
 }
 
 /* Contenedor para la imagen de NASA */
-.nasa-image {
+.nasa-image,
+.nasa-media,
+.video-container {
   margin-top: 20px;
   text-align: center;
   max-width: 100%; /* Permite que la imagen ocupe todo el ancho disponible */
@@ -51,6 +53,7 @@
   font-size: 1.1rem;
   color: #ecf0f1;
   margin-top: 20px;
+  text-align: center;
   padding: auto;
 }
 
@@ -91,3 +94,4 @@
 button:focus {
   outline: none;
 }
+

@@ -1,0 +1,86 @@
+.images-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.images-title {
+  font-size: 2rem;
+  color: #f1c40f; /* Amarillo */
+  margin-bottom: 20px;
+}
+
+.sol-input {
+  margin-left: 0.5rem;
+  width: 80px;
+  padding: 0.25rem;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.image-card {
+  background-color: #333; /* Fondo oscuro */
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Para poder poner imagen + texto */
+  justify-content: flex-start;
+  align-items: center;
+  height: 300px; /* Un poco más alto para texto */
+  position: relative;
+  padding: 10px;
+  color: white; /* Texto blanco para contraste */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.image-img {
+  width: 100%;
+  height: 200px; /* La altura fija para la imagen */
+  object-fit: cover; /* Cubrir sin distorsionar */
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.image-card p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+}
+
+/* Botón cargar más */
+.load-more-button {
+  display: inline-block;
+  margin: 30px auto 0 auto;
+  padding: 0.75rem 1.5rem;
+  background-color: #f1c40f;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: #d4ac0d;
+}
+
+/* Spinner */
+.spinner {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #f1c40f;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #e74c3c; /* Rojo para error */
+  text-align: center;
+  margin-top: 1rem;
+}
