@@ -15,9 +15,8 @@ app.use(express.json());
 app.use( 
   cors({
   origin: [
-    "http://localhost:5173",
+    "http://localhost:5173"
     // Agregar aquí el dominio del frontend en producción
-    "https://app-misiones-espaciales-izgi.vercel.app"
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
