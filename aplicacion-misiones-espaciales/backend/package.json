@@ -1,12 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "src/api/app.js", 
+  "main": "src/api/app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/api/app.js",  
-    "dev": "nodemon src/api/app.js"  
+    "start": "node src/api/app.js",
+    "dev": "nodemon src/api/app.js"
   },
   "keywords": [],
   "author": "",
