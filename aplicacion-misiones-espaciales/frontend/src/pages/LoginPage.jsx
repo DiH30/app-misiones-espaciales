@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 
 export const LoginPage = () => {
 
- const { setUser } = useAuth() //Llamar al custom hook useAuth para recuperar la función de actualizar usuario
+  const { setUser } = useAuth() //Llamar al custom hook useAuth para recuperar la función de actualizar usuario
 
 
   const {
@@ -17,17 +17,21 @@ export const LoginPage = () => {
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
-     const { email, password } = data
+    const { email, password } = data;
 
     try {
-      const res = await loginRequest({ email, password })
-      setUser(res.data)
-      navigate("/profile")
+      const res = await loginRequest({ email, password });
+      setUser(res.data);  // Establecer usuario en el contexto de autenticación
+      navigate("/profile");  // Redirigir al perfil después de login exitoso
     } catch (error) {
-
-      console.log(error)
+      console.log(error);  // Si hay un error, se imprime en consola
+      
+    if (error.response && error.response.data && error.response.data.message) {
+      alert(error.response.data.message);  // Muestra el mensaje de error al usuario
+    } else {
+      alert("Ocurrió un error desconocido. Por favor, intenta de nuevo.");
     }
-    
+    }
   };
 
   return (
