@@ -12,25 +12,26 @@ const PORT = process.env.PORT
 const app = express();
 
 app.use(express.json());
-app.use( 
+app.use(
   cors({
-  origin: [
-    "http://localhost:5173",
-    // Agregar aquí el dominio del frontend en producción
-    "https://app-misiones-espaciales-5pvc.vercel.app"
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}) )
+    origin: [
+      'https://app-misiones-espaciales-5pvc.vercel.app',  // Frontend en producción
+      'http://localhost:5173',                  // Frontend en desarrollo
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  }))
 app.use(cookieParser());
 
 // Rutas
 app.use("/api/misiones", misionesRouter)
-app.use( "/api", authRoutes )
+app.use("/api", authRoutes)
 
 // Conexión a MongoDB 
-mongoose.connect(process.env.MONGO_KEY).then( () => console.log( "Conectado a MongoDB" ) )
+mongoose.connect(process.env.MONGO_KEY).then(() => console.log("Conectado a MongoDB"))
 
 app.listen(PORT, () => {
   console.log("Servidor corriendo en el puerto", PORT)
 })
+
+export default app;
