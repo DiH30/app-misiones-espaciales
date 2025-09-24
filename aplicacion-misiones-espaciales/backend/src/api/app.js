@@ -15,8 +15,9 @@ app.use(express.json());
 app.use( 
   cors({
   origin: [
-    "http://localhost:5173"
+    "http://localhost:5173",
     // Agregar aquí el dominio del frontend en producción
+    "https://app-misiones-espaciales-5pvc.vercel.app"
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
@@ -33,6 +34,3 @@ mongoose.connect(process.env.MONGO_KEY).then( () => console.log( "Conectado a Mo
 app.listen(PORT, () => {
   console.log("Servidor corriendo en el puerto", PORT)
 })
-
-// Exportar app para que Vercel la use como función serverless
-export default app;
