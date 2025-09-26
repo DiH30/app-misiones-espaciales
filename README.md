@@ -21,5 +21,7 @@ tanto en la fase de planificación como en la ejecución y post-lanzamiento.
 - Contará con una Interfaz fácil de usar.
 - Permitirá a los usuarios, monitorear, seguir y obtener información sobre misiones espaciales.
 - Proporcionará noticias y actualizaciones sobre la misión y la exploración espacial en general.
-- Incluirá fotos y videos relacionados con la misión. 
+- Contará con la 🌌 Imagen Astronómica del Día.
+- Incluirá 🪐 Imágenes de Marte por Curiosity.
+
   
