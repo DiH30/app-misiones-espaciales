@@ -37,13 +37,20 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/profile">Perfil</Link>
                 </li>
+               
                 {/* Enlace a Misiones */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/misiones">Misiones</Link>
                 </li>
+
                 {/* Enlace a Imágenes */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/images">Imágenes</Link>
+                </li>
+
+                 {/* Enlace a Formulario */}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/formulario">Registra tú Misión</Link>
                 </li>
 
                 <li className="nav-item">

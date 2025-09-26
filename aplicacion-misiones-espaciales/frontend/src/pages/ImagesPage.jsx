@@ -71,9 +71,9 @@ export const ImagesPage = () => {
 
   return (
     <main className="images-container">
-      <h2 className="images-title">Imágenes de Marte por Curiosity</h2>
-
-      <label htmlFor="sol-input">
+      <h2 className="images-title">🪐 Imágenes de Marte por Curiosity</h2>
+      
+      <label htmlFor="sol-input" className="label-sol">
         Día marciano (sol):
         <input
           type="number"

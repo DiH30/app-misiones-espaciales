@@ -7,7 +7,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="profile-container">
-      <div className="profile-title">Perfil</div>
+      <div className="profile-title">Perfil 👩‍🚀</div>
       {user ? (
         <div>
           <div className="profile-card">

@@ -7,10 +7,13 @@ export const HomePage = () => {
   const [nasaData, setNasaData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [leyenda, setLeyenda] = useState('');
+  const [mostrarLeyenda, setMostrarLeyenda] = useState(false);
 
   const navigate = useNavigate(); // ✅ Hook para navegación
 
   const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY;
+
   const obtenerFecha = (offsetDias = 0) => {
     const fecha = new Date();
     fecha.setDate(fecha.getDate() - offsetDias);
@@ -49,6 +52,9 @@ export const HomePage = () => {
         console.warn('Contenido no válido para hoy. Intentando con la imagen de ayer...');
         const ayer = obtenerFecha(1);
         data = await fetchData(ayer);
+        setLeyenda('📸 Mostrando la imagen de ayer porque no hay una imagen válida disponible para hoy.');
+      } else {
+        setLeyenda('🛰️ Imagen astronómica del día de hoy.');
       }
 
       if (data && data.url) {
@@ -77,8 +83,8 @@ export const HomePage = () => {
 
   return (
     <div className="home-container">
-      <h2 className="home-title">Bienvenido a la Página de Inicio 🚀</h2>
-      <h3 className="titulo-cursiva">Imagen Astronómica del Día 🌌</h3>
+      <h2 className="home-title">🚀 Bienvenido a la Página de Inicio</h2>
+      <h3 className="titulo-cursiva">🌌 Imagen Astronómica del Día</h3>
 
       {nasaData && (
         <div className="nasa-media">
@@ -102,14 +108,30 @@ export const HomePage = () => {
                 ></iframe>
               </div>
             )
-          ) : nasaData.media_type === 'image' ? (
-            <img src={nasaData.url || nasaData.hdurl} alt={nasaData.title} className="nasa-img" />
           ) : (
-            <p>Tipo de medio no soportado: {nasaData.media_type}</p>
+            <img
+              src={nasaData.hdurl || nasaData.url}
+              alt={nasaData.title}
+              className="nasa-img"
+            />
           )}
 
-          <p><strong>{nasaData.title}</strong></p>
-          <p className="nasa-explanation">{nasaData.explanation}</p>
+          {/* ✅ Leyenda debajo del contenido multimedia */}
+
+          {leyenda && !mostrarLeyenda && (
+            <button className="btn-leyenda" onClick={() => setMostrarLeyenda(true)}>
+              Mostrar leyenda
+            </button>
+          )}
+          {leyenda && mostrarLeyenda && (
+            <p className="leyenda-imagen">{leyenda}</p>
+          )}
+
+          <div className="container-explanation">
+
+            <p className="titulo-imagen"><strong>{nasaData.title}</strong></p>
+            <p className="nasa-explanation">{nasaData.explanation}</p>
+          </div>
         </div>
       )}
 
@@ -119,5 +141,3 @@ export const HomePage = () => {
     </div>
   );
 };
-
- 

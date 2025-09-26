@@ -19,6 +19,7 @@
 .home-title {
   text-align: center;
   font-size: 2.5rem;
+  margin-top: 5px;
   margin-bottom: 20px;
   color: #f1c40f;
 }
@@ -35,26 +36,70 @@
   margin-top: 20px;
   text-align: center;
   max-width: 100%; /* Permite que la imagen ocupe todo el ancho disponible */
-  margin-bottom: 30px; /* Espacio adicional debajo de la imagen */
+  margin-bottom: 15px; /* Espacio adicional debajo de la imagen */
 }
 
 /* Estilo de la imagen */
 .nasa-img {
   width: 100%;
-  max-width: 800px; /* Limita el ancho de la imagen */
+  max-width: 850px; /* Limita el ancho de la imagen */
   height: 620px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 30px; 
 }
 
+.btn-leyenda {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-leyenda:hover {
+  background-color: #1565c0;
+}
+
+.leyenda-imagen {
+  margin-top: 5px;
+  padding: 10px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-explanation{
+  margin-top: 5px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente oscuro */
+  text-align: center;
+  border-radius: 8px;
+  max-width: 850px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.titulo-imagen {
+  color: #d0e73c;
+  font-size: 1rem;
+  text-align: center;
+}
+
 /* Explicación debajo de la imagen */
 .nasa-explanation {
   font-size: 1.1rem;
-  color: #ecf0f1;
-  margin-top: 20px;
+  margin-top: 5px;
   text-align: center;
-  padding: auto;
+  padding: 10px 10px;
+  color: #fff;
 }
 
 /* Contenedor de error */

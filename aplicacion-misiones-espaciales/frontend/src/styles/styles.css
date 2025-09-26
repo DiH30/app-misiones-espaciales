@@ -11,6 +11,11 @@
   margin-bottom: 20px;
 }
 
+.label-sol {
+  color: aqua;
+  font-weight: bold; 
+}
+
 .sol-input {
   margin-left: 0.5rem;
   width: 80px;

@@ -20,6 +20,40 @@
 .form-group {
   margin-bottom: 15px;
 }
+.form-group-clave {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px auto;
+  max-width: 400px;
+  align-items: center;
+}
+
+.input-clave {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f0f0f0; /* Gris claro */
+  color: #333;
+}
+
+.btn-verificar-clave {
+  background-color: #ffd700; /* Amarillo */
+  color: #000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-verificar-clave:hover {
+  background-color: #e6c200; /* Amarillo más oscuro al pasar el mouse */
+}
+
 
 label {
   font-size: 1rem;

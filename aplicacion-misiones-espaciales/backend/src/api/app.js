@@ -14,12 +14,12 @@ const app = express();
 
 app.use(express.json());
 app.use(
-  cors({
-    origin: [
+  cors({ origin: "http://localhost:5173", // Frontend en desarrollo
+    /*origin: [
+      'http://localhost:5173', 
       'https://app-misiones-espaciales-5pvc.vercel.app',  // Frontend en producción
-      'http://localhost:5173',                  // Frontend en desarrollo
     ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],*/
     credentials: true,
   }))
 app.use(cookieParser());
@@ -35,5 +35,3 @@ mongoose.connect(process.env.MONGO_KEY).then(() => console.log("Conectado a Mong
 app.listen(PORT, () => {
   console.log("Servidor corriendo en el puerto", PORT)
 })
-
-export default app;
